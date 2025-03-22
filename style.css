@@ -1,83 +1,83 @@
 * {
-    margin: 0;
-    padding: 0;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-    font-family: "Amazon Ember",sans-serif;
-    background-image: url("images/bg.jpg");
-    background-size: cover;
-    width: 100vw;
-    height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
+  font-family: "Amazon Ember", sans-serif;
+  background-image: url("images/bg.jpg");
+  background-size: cover;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
 
 .wrapper {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.6);
-    backdrop-filter: blur(15px);
-    width: 45vw;
-    min-height: 90vh;
-    height: auto;
-    border: 2px solid rgba(255, 255, 255, 0.5);
-    border-radius: 15px;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
-    padding: 2rem
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(15px);
+  width: 45vw;
+  min-height: 90vh;
+  height: auto;
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.6);
+  padding: 2rem;
 }
 
 h1 {
-    color: whitesmoke;
-    font-size: 3vw;
-    position: static;
-    text-decoration: underline;
+  color: whitesmoke;
+  font-size: 3vw;
+  position: static;
+  text-decoration: underline;
 }
 
 #taskInput {
-    background-color: transparent;
-    border: 0.3px solid rgba(0, 0, 0, 0.6);
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-    line-height: 1.5rem;
-    color: white;
-    min-width: 25vw;
-    position: static;
-    margin-top: 3rem;
-    text-align: center;
+  background-color: transparent;
+  border: 0.3px solid rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  line-height: 1.5rem;
+  color: white;
+  min-width: 25vw;
+  position: static;
+  margin-top: 3rem;
+  text-align: center;
 }
 
 #taskInput::placeholder {
-    color: rgba(255, 255, 255, 0.4);
-    font-size: clamp(12px, 1vw, 18px);
+  color: rgba(255, 255, 255, 0.4);
+  font-size: clamp(12px, 1vw, 18px);
 }
 
 #addBtn {
-    background-color: transparent;
-    border: 0.3px solid rgba(0, 0, 0, 0.6);
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
-    box-sizing: border-box;
-    color: whitesmoke;
-    cursor: pointer;
-    display: inline-block;
-    font-size: clamp(12px, 1vw, 18px);
-    line-height: 1.5rem;
-    padding: 0 10px 0 11px;
-    text-align: center;
-    text-decoration: none;
-    min-width: 10vw;
-    position: static;
-    margin-top: 3rem;
+  background-color: transparent;
+  border: 0.3px solid rgba(0, 0, 0, 0.6);
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  box-sizing: border-box;
+  color: whitesmoke;
+  cursor: pointer;
+  display: inline-block;
+  font-size: clamp(12px, 1vw, 18px);
+  line-height: 1.5rem;
+  padding: 0 10px 0 11px;
+  text-align: center;
+  text-decoration: none;
+  min-width: 10vw;
+  position: static;
+  margin-top: 3rem;
 }
 
 .delete-button {
-    background-color: transparent;
-    border: none;
-    cursor: pointer;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
 
 #addBtn:hover {
@@ -86,23 +86,45 @@ h1 {
 }
 
 .input-button {
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    align-items: center;
-    margin-bottom: 2rem;
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 2rem;
 }
 
 .task-item {
-    display: flex;
-    flex-direction: row;
-    margin-top: 1.2rem;
-    min-width: 35vw;
-    justify-content: space-between;
-    background-color: rgba(255, 255, 255, 0.1);
-    padding: 0.8rem 1rem;
-    border-radius: 8px;
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
-    align-items: center;
-    color: whitesmoke;
+  display: flex;
+  flex-direction: row;
+  margin-top: 1.2rem;
+  min-width: 35vw;
+  justify-content: space-between;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 0.8rem 1rem;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(255, 255, 255, 0.2);
+  align-items: center;
+  color: whitesmoke;
+}
+
+.credit {
+  position: fixed;
+  bottom: 10px;
+  right: 10px;
+  font-size: 12px;
+  color: white;
+  opacity: 0.7;
+  z-index: 999;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 5px 8px;
+  border-radius: 5px;
+}
+
+.credit a {
+  text-decoration: none;
+  color: orangered;
+}
+
+.credit a:hover {
+  color: deeppink;
 }
