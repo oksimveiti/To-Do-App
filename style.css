@@ -74,6 +74,12 @@ h1 {
     margin-top: 3rem;
 }
 
+.delete-button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
 #addBtn:hover {
   background-color: rgba(255, 255, 255, 0.5);
   color: black;
