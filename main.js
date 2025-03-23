@@ -10,41 +10,85 @@ button.addEventListener("click", function () {
   } else {
     const taskItem = document.createElement("div");
     taskItem.classList.add("task-item");
+
+    const taskBtns = document.createElement("div");
+    taskBtns.classList.add("task-buttons");
+
     const taskTextEl = document.createElement("span");
     taskTextEl.textContent = taskText;
     taskItem.appendChild(taskTextEl);
     taskList.appendChild(taskItem);
+    taskItem.appendChild(taskBtns);
     input.value = "";
 
+    // Task item done button
+    const doneBtn = document.createElement("button");
+
+    doneBtn.addEventListener("click", function() {
+      taskTextEl.classList.toggle("completed");
+    });
+
+    doneBtn.classList.add("done-button");
+    doneBtn.textContent = "✅";
+    taskBtns.appendChild(doneBtn);
+
+    // Task item edit button
+    const editBtn = document.createElement("button");
+
+    editBtn.addEventListener("click", function() {
+      const currentText = taskTextEl.textContent;
+      const inputField = document.createElement("input");
+      inputField.type = "text";
+      inputField.value = currentText;
+      inputField.classList.add("edit-input")
+
+      taskItem.replaceChild(inputField, taskTextEl);
+      inputField.focus();
+
+      inputField.addEventListener("blur", function() {
+        taskTextEl.textContent = inputField.value.trim() || currentText;
+        taskItem.replaceChild(taskTextEl, inputField);
+      })
+
+      inputField.addEventListener("keydown", function(event) {
+        if(event.key === "Enter") {
+          inputField.blur()
+        }
+      })
+    });
+
+    editBtn.classList.add("edit-button");
+    editBtn.textContent = "✏️";
+    taskBtns.appendChild(editBtn);
+
+    // Task item delete button
     const delBtn = document.createElement("button");
 
     delBtn.addEventListener("click", function () {
-      const taskToDelete = delBtn.parentElement;
-      taskToDelete.remove();
+      taskItem.remove();
     });
 
     delBtn.classList.add("delete-button");
     delBtn.textContent = "❌";
-    taskItem.appendChild(delBtn);
+    taskBtns.appendChild(delBtn);
 
     // Clear stored input after successful task creation
-    sessionStorage.removeItem("taskInputValue")
+    sessionStorage.removeItem("taskInputValue");
   }
 });
 
-input.addEventListener("keydown", function(event) {
-    if(event.key === "Enter") {
-        button.click();
-    }
-})
+input.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    button.click();
+  }
+});
 
-document.addEventListener("DOMContentLoaded", function() {
-    if (sessionStorage.getItem("taskInputValue")) {
-        input.value = sessionStorage.getItem("taskInputValue");
-    }
+document.addEventListener("DOMContentLoaded", function () {
+  if (sessionStorage.getItem("taskInputValue")) {
+    input.value = sessionStorage.getItem("taskInputValue");
+  }
 
-    input.addEventListener("input", function() {
-        sessionStorage.setItem("taskInputValue", input.value);
-    })
-})
-
+  input.addEventListener("input", function () {
+    sessionStorage.setItem("taskInputValue", input.value);
+  });
+});
